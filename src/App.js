@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import AddTask from './components/AddTask';
 import Tasks from './components/Tasks';
 import Filter from './components/Filter';
-import Footer from './components/Footer';
+
 
 
 
@@ -22,7 +22,7 @@ function App() {
 
   // Fetch Tasks
   const fetchTasks = async () => {
-    const res = await fetch('http://localhost:5000/tasks')
+    const res = await fetch('http://localhost:5000/api/tasks')
     const data = await res.json()
     console.log(data)
     return data
@@ -30,7 +30,7 @@ function App() {
 
   // Add Task
   const addTask = async (task) => {
-    const res = await fetch('http://localhost:5000/tasks', {
+    const res = await fetch('http://localhost:5000/api/tasks', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
@@ -81,7 +81,7 @@ function App() {
         <h2>No tasks to show</h2>
       )}
       
-      <Footer/>
+     
     </div>
     
   );
